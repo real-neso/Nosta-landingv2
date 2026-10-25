@@ -201,3 +201,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
  .dl-cta{flex-direction:column;align-items:center}
  .dl-cta .btn{flex:none;width:100%;max-width:300px;justify-content:center;padding:11px 18px;font-size:14px}
 }
+
+/* زر التالي العائم */
+.next-btn{position:fixed;z-index:15;inset-inline-end:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:52px;height:52px;border-radius:50%;border:1px solid #ffffff40;background:rgba(20,22,26,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 30px -10px #000;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s,border-color .2s,transform .2s var(--ease)}
+.is-ready .next-btn{opacity:1;visibility:visible}
+.next-btn:hover{border-color:var(--blue);transform:translateY(-2px)}
+.next-btn svg{transition:transform .3s var(--ease)}
+.next-btn.up svg{transform:rotate(180deg)}
+@media(max-width:520px){.next-btn{width:46px;height:46px;inset-inline-end:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}}
