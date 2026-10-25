@@ -191,3 +191,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .soc-ico:hover{color:#fff;border-color:var(--blue)}
 .menu-soc{display:none}
 @media(max-width:900px){.soc-ico{display:none}.menu-soc{display:block}}
+
+/* أزرار التحميل وDiscord */
+.dl-cta{justify-content:center;gap:12px;margin-bottom:16px}
+.dl-cta .btn{padding:13px 26px;font-size:15px;gap:10px;line-height:1.3;white-space:nowrap}
+.dl-cta .btn svg{flex:none;width:18px;height:18px}
+.dl-cta .discord{border-color:#5865F2;color:#8c96ff}
+@media(max-width:520px){
+ .dl-cta{flex-direction:column;align-items:center}
+ .dl-cta .btn{flex:none;width:100%;max-width:300px;justify-content:center;padding:11px 18px;font-size:14px}
+}
