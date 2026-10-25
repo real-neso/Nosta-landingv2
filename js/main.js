@@ -76,4 +76,20 @@
       setTimeout(() => body.scrollIntoView({ behavior: "smooth", block: "center" }), 80);
     }
   });
+  /* ---------- 5) زر التالي (حاسوب وهاتف) ---------- */
+  const nextBtn = $("#next-btn");
+  if (nextBtn) {
+    const steps = [$(".hero"), ...["profile", "chat", "store", "music", "status", "join"].map(id => document.getElementById(id))].filter(Boolean);
+    const atEnd = () => innerHeight + scrollY >= document.documentElement.scrollHeight - 6;
+    const current = () => { let c = 0; steps.forEach((el, i) => { if (el.getBoundingClientRect().top <= 140) c = i; }); return c; };
+    const update = () => nextBtn.classList.toggle("up", atEnd() || current() === steps.length - 1);
+    nextBtn.addEventListener("click", () => {
+      if (nextBtn.classList.contains("up")) { scrollTo({ top: 0, behavior: "smooth" }); return; }
+      const n = steps[Math.min(current() + 1, steps.length - 1)];
+      n.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    addEventListener("scroll", update, { passive: true });
+    addEventListener("resize", update);
+    update();
+  }
 })();
